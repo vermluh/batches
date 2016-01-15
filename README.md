@@ -1,4 +1,4 @@
-# Collection of useful (more or less) batch files #
+# Collection of useful (more or less) batch and script files #
 - DelAll.cmd
 
     Description goes here
