@@ -5,6 +5,8 @@ Script used to clear the directory structure beneath the directory defined in va
 ## DelAllV2.cmd ##
 Cleaner version of `DelAll.cmd`.
 
+## DumpSubversionRepository.cmd ##
+
 ## GetCurrentDate.cmd ##
 Different approaches to store the current date in a variable. This date string can be used, for example, to create files that contain the current date in their name.  
 
