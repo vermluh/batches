@@ -1,0 +1,10 @@
+#! /bin/bash
+
+if [ "$1" == "" ]; then
+  echo You have to provide a project name
+  exit 1
+else
+  sudo svnadmin create /srv/sbvrsn/repos/${1}
+  sudo svn import /srv/sbvrsn/project_template file:///srv/sbvrsn/repos/${1} -m "built initial directory structure"
+  sudo chown -R www-data:www-data /srv/sbvrsn/repos/${1}
+fi

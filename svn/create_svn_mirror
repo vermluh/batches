@@ -1,0 +1,13 @@
+#! /bin/bash
+
+if [ "$1" == "" ]; then
+  echo You have to provide a project name
+  exit 1
+else
+  sudo svnadmin create /srv/sbvrsn/repos/${1}
+  sudo cp /srv/sbvrsn/templates/pre-revprop-change /srv/sbvrsn/repos/${1}/hooks
+  sudo chown -R www-data:www-data /srv/sbvrsn/repos/${1}
+  sudo svnsync init file:///srv/sbvrsn/repos/${1} https://.../${1} --no-auth-cache --username ... --password ...
+  ts=$(date "+%Y-%m-%dT%H_%M_%S")
+  sudo svnsync sync file:///srv/sbvrsn/repos/${1} --no-auth-cache --username ... --password ... | tee /var/log/svn_mirror_log/${1}.$ts.log
+fi

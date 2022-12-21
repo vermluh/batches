@@ -1,0 +1,9 @@
+#! /bin/bash
+
+if [ "$1" == "" ]; then
+  echo You have to provide a project name
+  exit 1
+else
+  ts=$(date "+%Y-%m-%dT%H_%M_%S")
+  svnrdump dump https://.../${1} --no-auth-cache --username ... --password ... 2> >(tee /var/log/svn_dump_log/${1}.$ts.log >&2) | gzip -9 /mnt/DATA/svn_dumps/${1}.$ts.dump.gz
+fi
